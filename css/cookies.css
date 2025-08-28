@@ -94,3 +94,48 @@ body.cookies-page {
   50% { box-shadow: 0 0 20px rgba(255,180,0,0.9); transform: translateY(-3px); }
   100% { box-shadow: 0 0 5px rgba(255,180,0,0.5); transform: translateY(0); }
 }
+
+/* ====== FAQ ====== */
+.faq {
+  background: #141414;
+  padding: 30px 20px;
+  border-top: 2px solid #ffb400;
+  border-bottom: 2px solid #ffb400;
+}
+
+.faq h2 {
+  text-align: center;
+  color: #ffb400;
+  margin-bottom: 20px;
+}
+
+.faq > div {
+  padding: 15px 0;
+  border-top: 1px solid #333;
+}
+
+.faq > div:first-of-type {
+  border-top: none;
+}
+
+.faq h3 {
+  font-size: 1.1em;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.faq p {
+  font-size: 0.95em;
+  color: #ccc;
+  line-height: 1.5;
+}
+
+/* Адаптив для FAQ */
+@media (max-width: 768px) {
+  .faq {
+    padding: 20px 15px;
+  }
+  .faq h2 {
+    font-size: 1.4em;
+  }
+}
