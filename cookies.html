@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Очистка cookies перед регистрацией | FreeBTC</title>
+  <link rel="stylesheet" href="css/cookies.css">
+</head>
+<body class="cookies-page">
+
+  <section class="cookies-warning">
+    <div class="warning-icon">⚠️</div>
+    <h1>Перед регистрацией — очистите cookies!</h1>
+    <p class="intro">
+      Это нужно, чтобы система точно засчитала вашу регистрацию по реферальной ссылке
+      и вы получили все бонусы. Без этого регистрация может не отобразиться.
+    </p>
+
+    <h3>Как очистить cookies:</h3>
+    <ul class="cookies-steps">
+      <li><b>Chrome:</b> Меню → Настройки → Конфиденциальность → Очистить данные браузера → Cookies.</li>
+      <li><b>Firefox:</b> Меню → Приватность и защита → Очистить данные.</li>
+      <li><b>Edge:</b> Меню → Конфиденциальность → Cookies → Очистить.</li>
+      <li><b>Мобильные браузеры:</b> Настройки → Конфиденциальность → Очистка истории и данных сайтов.</li>
+    </ul>
+
+    <label class="checkbox-label">
+      <input type="checkbox" id="cookies-confirm">
+      Я очистил cookies
+    </label>
+
+    <a href="https://freebitco.in/?r=4967787" id="go-register" class="cta-btn animated-btn">
+      ✅ Перейти к регистрации
+    </a>
+  </section>
+
+  <script>
+    const checkbox = document.getElementById('cookies-confirm');
+    const registerBtn = document.getElementById('go-register');
+
+    registerBtn.style.display = 'none';
+
+    // Появление кнопки после галочки
+    checkbox.addEventListener('change', function(){
+      if(this.checked) {
+        registerBtn.style.display = 'inline-block';
+        registerBtn.classList.add('show-btn');
+      } else {
+        registerBtn.style.display = 'none';
+        registerBtn.classList.remove('show-btn');
+      }
+    });
+
+    // Счётчик кликов
+    registerBtn.addEventListener('click', function(){
+      let count = parseInt(localStorage.getItem('regClicks') || 0);
+      count++;
+      localStorage.setItem('regClicks', count);
+      console.log('Всего кликов по кнопке регистрации: ', count);
+    });
+
+    // A/B‑варианты текста
+    const headlines = [
+      "Перед регистрацией — очистите cookies!",
+      "Важно! Очистите cookies, чтобы бонус засчитался",
+      "Последний шаг перед стартом — чистим cookies"
+    ];
+    const ctaTexts = [
+      "✅ Перейти к регистрации",
+      "🚀 Получить бонус и зарегистрироваться",
+      "🎯 Начать зарабатывать"
+    ];
+
+    const rndH = Math.floor(Math.random() * headlines.length);
+    const rndC = Math.floor(Math.random() * ctaTexts.length);
+
+    document.querySelector('.cookies-warning h1').textContent = headlines[rndH];
+    registerBtn.textContent = ctaTexts[rndC];
+  </script>
+
+</body>
+</html>
