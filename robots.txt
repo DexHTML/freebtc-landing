@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dexhtml.github.io/freebtc-landing/sitemap.xml
